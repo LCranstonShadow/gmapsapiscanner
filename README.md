@@ -16,6 +16,8 @@ Used for determining whether a leaked/found Google Maps API Key is vulnerable to
 ```
 pipx install git+https://github.com/ozguralp/gmapsapiscanner
 gmapsapiscanner --api-key KEY
+gmapsapiscanner --api-key KEY --no-jsapi   # Skip interactive JavaScript API test (e.g. for CI)
+gmapsapiscanner --no-jsapi                 # Prompt for API key, then run without JS API prompt
 ```
 
 ***Checked APIs:***
@@ -30,7 +32,7 @@ gmapsapiscanner --api-key KEY
 - Autocomplete API
 - Elevation API
 - Timezone API
-- Roads API
+- Roads API (Nearest Roads, Snap to Roads, Speed Limits)
 - Geolocation API
 - Route to Traveled API
 - Speed Limit-Roads API
@@ -38,12 +40,15 @@ gmapsapiscanner --api-key KEY
 - Nearby Search-Places API
 - Text Search-Places API
 - Places Photo API
+- Address Validation API
+- Air Quality API
+- Aerial View API
+- Routes API (computeRoutes, computeRouteMatrix)
 - <s>Playable Locations API</s> (API is deprecated.)
 - FCM API
-- Custom Search API
 
 ***Semi-Auto Checked APIs:***
-- JavaScript API
+- JavaScript API (skip with `--no-jsapi` for non-interactive/CI use)
 
 ***Notes:***
 - Because JavaScript API needs manual confirmation from a web browser directly, only file is created via the script for manual checks/confirmation.
